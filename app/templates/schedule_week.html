@@ -1,0 +1,32 @@
+{% extends "home.html" %}
+
+{% block data %}
+    <table class="schedule">
+        <tr>
+            <td>№</td>
+            {% for day in week %}
+                <td>{{day}}</td>
+            {% endfor %}
+        </tr>
+        {% for level in range(9) %}
+            <tr>
+                <td>{{level}}</td>
+                {% for day in range(7) %}
+                    <td>
+                        <ol>
+                            {% for x in schedule[level][day] %}
+                            <li>
+                                <ul>
+                                    <li> {{x.subject}} </li>
+                                    <li> {{x.classroom}} </li>
+                                    <li> {{x.lecturer}} </li>
+                                </ul>
+                            </li>
+                            {% endfor %}
+                        </ol>
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

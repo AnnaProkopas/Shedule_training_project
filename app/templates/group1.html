@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../static/home.css?v8">
+    </head>
+    <body>
+        <div class="header">
+            <nav>
+            <a class="link" href="{{ url_for('group')}}">Список группы</a>
+            <a href="{{ url_for('schedule_week')}}">Расписание на неделю</a>
+            <a href="{{ url_for('homework')}}">Домашние задания</a>
+            <a href="{{ url_for('best')}}">Топ отличников</a>
+            </nav>
+        </div>
+        <main class="best_students">
+            <h1> {{ group.name }} </h1>
+            <table>
+                    <tr>
+                        <td>Студент</td>
+                        <td>Успеваемость</td>
+                    </tr>
+                   <!-- {% for student in group.students %}-->
+                        <tr>
+                            <td>{{student.name}}</td>
+                            <td>{{student.progress}}</td>
+                        </tr>
+                    <!--{% endfor %}-->
+            </table>
+        </main>
+    </body>
+</html>

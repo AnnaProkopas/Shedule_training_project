@@ -1,0 +1,10 @@
+{% extends "home.html" %}
+
+{% block data %}
+<form action="/add_group" method="post" id="add_group_form" class="insert_form">
+    Название группы:  
+    <input type="text" name="name"> 
+    <input type="text" name="stop" id="stop" style="display: none;">
+    <button onclick="confirm_submit('add_group_form')">Создать</button>
+</form>
+{% endblock %}

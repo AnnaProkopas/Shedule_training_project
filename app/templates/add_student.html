@@ -1,0 +1,20 @@
+{% extends "home.html" %}
+
+{% block data %}
+<form action="/add_student" method="post" class="insert_form" id="add_student_form">
+    <label>ФИО:</label>
+    <input type="text" name="name">
+    <label>Группа:</label>
+    <select type="text" name="group_id">
+        {% for group in groups %}
+            <option value="{{group.id}}">№ {{group.id}}, {{group.chair}} </option>
+        {% endfor %}
+    </select>
+    <label>Дата рождения (пример: 1997-07-09):</label>     
+    <input type="text" name="bith"> 
+    <label>Дата поступления (пример: 2019-09-01):</label> 
+    <input type="text" name="admission" value="2019-09-01"> 
+    <input type="text" name="stop" id="stop" style="display: none;">
+    <button onclick="confirm_submit('add_student_form')">Создать</button>
+</form>
+{% endblock %}

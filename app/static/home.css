@@ -1,0 +1,144 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+}
+
+body {
+    background: 
+    rgba(240, 240, 240, 20)
+    url(image/back.png);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    margin: 0%;
+}
+
+.header {
+    background: rgba(240, 240, 240, 0.5);
+    height: 40px;
+}
+
+.header ul {
+    text-align: center;
+    line-height: 2;
+    list-style: none;
+    margin: 0;
+    /* display: inline; */
+}
+
+.header li {
+    display: inline-block;    
+}
+
+.header a, .part {
+    margin: 0 10px;
+    border: 4px double black;
+    padding: 3px;
+}
+
+.chosen-container {
+    margin: 0;
+    width: max-content;
+    display: inline-block;
+}
+
+.header select {
+    background-color: rgba(255, 255, 255, 0.3);
+    font: inherit
+}
+
+main {
+    background: rgba(230, 230, 230, 0.45);
+    margin: 10px 18%;
+    min-width: 800px;
+}
+
+@media (max-width: 640px) {
+    main { margin: 0px; }
+}
+
+.group ol{
+    list-style: decimal;
+    margin-left: 15px;
+}
+
+.group li {
+  padding: 5px;
+}
+
+.best_students table{
+    text-align: center;
+}
+
+.best_students td {
+    width: 180px;
+    padding: 2px;
+}
+
+.best_students tr:first-child {
+    padding: 5px;
+}
+
+.schedule {
+    font-size: 14px;
+    border-color: black;
+    border-style: double;
+}
+
+.schedule tr, th {
+    border: 1px black dashed;
+    background-color: rgba(200, 200, 200, 0.4);
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+.schedule tr:first-child {
+    text-align: center;
+}
+
+.schedule ul {
+    list-style: none;    
+    padding-inline-start: 10px;
+}
+
+.schedule ol {
+    margin: 0px;
+    padding: 0px;
+    padding-inline-start: 20px;
+}
+
+.homework {
+    list-style: none;
+}
+
+.homework h1 {
+    font-size: 20pt;
+}
+
+.homework ol li {
+    padding-inline-start: 50px;
+    padding-bottom: 15px;
+}
+
+.insert_form {
+    text-align: left;
+    display: grid;
+    grid-gap: 5px;
+    width: min-content;
+    size: 14pt;
+}
+
+.insert_form input, select, button {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.insert_form button {
+    max-width: 250px;
+    min-width: max-content;
+    justify-self: center;
+}

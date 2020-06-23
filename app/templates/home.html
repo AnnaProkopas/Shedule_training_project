@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../static/home.css?v31">
+        <script>
+            function post_send() {
+                let form = document.getElementById('select_stud_form');
+                form.submit();
+            }
+            function confirm_submit(id_form) {
+                if (confirm("Вы уверены, что хотите внести изменение в базу данных (проверьте данные)?")) {
+                    let form = document.getElementById(id_form);
+                    a = document.getElementById("stop");
+                    a.value = false;
+                    form.submit();
+                } else {
+                    a = document.getElementById("stop");
+                    a.value = true;
+                    form.submit();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <ul>
+                <li>
+                    <a class="part link" href="{{ url_for('login')}}">Войти</a>
+                </li>
+                <li class="chosen-drop">
+                    <form action="/" method="post" id="select_stud_form">
+                    <select class="chosen-results" name="select_stud" onchange="post_send()">
+                        <option>Выбор студента</option>
+                        {% for student in students %}
+                            <option {% if student.selected %} selected {% endif %} value={{student.id}}>{{ student.name }}</li>
+                        {%endfor%}
+                    </select>
+                </form>
+                </li>
+                <li>
+                    <a class="part link" href="{{ url_for('group')}}">Список группы</a>
+                </li>
+                <li>
+                    <a class="part" href="{{ url_for('schedule_week')}}">Расписание на неделю</a>
+                </li>
+                <li>
+                    <a class="part" href="{{ url_for('homework')}}">Домашние задания</a>
+                </li>
+                <li>
+                    <a class="part" href="{{ url_for('best')}}">Топ отличников</a>
+                </li>
+            </ul>
+        </div>
+        {% if is_admin %}
+        <div class="header">
+            <ul>
+                <li>
+                    <a class="part link" href="{{ url_for('add_group')}}">Добавить группу</a>
+                </li>
+                <li>
+                    <a class="part" href="{{url_for('add_curr')}}">Добавить предмет для группы</a>
+                </li>
+                <li>
+                    <a class="part" href="{{ url_for('add_student')}}">Добавить студента</a>
+                </li>
+                <li>
+                    <a class="part" href="{{ url_for('add_subject')}}">Добавить предмет</a>
+                </li>
+                <li>
+                    <a class="part" href="{{ url_for('add_task')}}">Добавить задание</a>
+                </li>
+                <li>
+                    <a class="part" href="{{ url_for('add_schedule')}}">Добавить пару</a>
+                </li>
+                <li>
+                    <a class="part" href="{{ url_for('add_mark')}}">Поставить оценку</a>
+                </li>
+            </ul>
+        </div>
+        {% endif %}
+        <main>
+            {% block data %}{% endblock %}        
+        </main>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class=flashes style="list-style: none;">
+          {% for message in messages %}
+            <li style="color: rgb(50, 180, 50);">{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+        {% endwith %}
+    </body>
+</html>

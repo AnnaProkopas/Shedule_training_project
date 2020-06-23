@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+
+{% block data %}
+    {% for key, task_list in subjects.items() %}
+    <ul class="homework">
+        <li>
+            <h1> {{ key }} </h1>
+            <ol>
+                {% for homework in task_list %}
+                    <li>{{ homework }}</li>
+                {% endfor %}
+            </ol>
+        </li>
+    </ul>
+    {% endfor %}
+{% endblock %}

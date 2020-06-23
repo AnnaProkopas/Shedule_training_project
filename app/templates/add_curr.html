@@ -1,0 +1,20 @@
+{% extends "home.html" %}
+
+{% block data %}
+<form action="/add_curr" method="post" id="add_curr_form" class="insert_form">
+    <label>Группы:</label>  
+    <select type="text" name="group_id">
+        {% for group in groups %}
+            <option value="{{group.id}}">№ {{group.id}}, {{group.title}} </option>
+        {% endfor %}
+    </select>
+    <label>Предмет:</label>  
+    <select type="text" name="subject_id">
+        {% for subject in subjects %}
+            <option value="{{subject.id}}">№ {{subject.id}}, {{subject.title}} </option>
+        {% endfor %}
+    </select>
+    <input type="text" name="stop" id="stop" style="display: none;">
+    <button onclick="confirm_submit('add_curr_form')">Создать</button>
+</form>
+{% endblock %}

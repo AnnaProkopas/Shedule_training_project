@@ -1,0 +1,17 @@
+{% extends "home.html" %}
+
+{% block data %}
+    <h1> {{ group.name }} </h1>
+    <table>
+            <tr>
+                <td>Студент</td>
+                <td>Успеваемость</td>
+            </tr>
+            {% for student in group.students %}
+                <tr>
+                    <td>{{student.name}}</td>
+                    <td>{{student.progress}}</td>
+                </tr>
+            {% endfor %}
+    </table>
+{% endblock %}
